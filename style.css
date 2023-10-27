@@ -17,7 +17,7 @@ h2 {
 img {
 	font-size: 30px;
 	font-weight: 400;
-	line-height: 1.5;
+	vertical-align: top;
 }
 
 .container {
@@ -84,6 +84,10 @@ img {
 	width: 100%;
 }
 
+#description::first-letter {
+	text-transform: capitalize;
+}
+
 #temp-today {
 	color: rgb(33, 33, 33);
 	display: inline;
@@ -96,7 +100,7 @@ img {
 .units {
 	position: relative;
 	font-size: 16px;
-	top: -34px;
+	top: -30px;
 }
 
 #weather-today {

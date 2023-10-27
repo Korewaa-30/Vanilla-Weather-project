@@ -37,7 +37,7 @@
 			<div class="weather">
 				<h1>Weather Dashboard</h1>
 				<form>
-					<div class="mb-3">
+					<div id="search-city">
 						<div class="row">
 							<div class="col-8">
 								<input
@@ -78,8 +78,9 @@
 					<div id="date">Date, time</div>
 					<div class="row">
 						<div class="col-6">
+							<div id="description"></div>
 							<img
-								src="https://openweathermap.org/img/wn/03d@4x.png"
+								src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
 								alt="icon"
 								width="70px"
 								id="current-icon"
@@ -101,9 +102,11 @@
 						</div>
 						<div class="col-6">
 							<div id="humidity">
-								Humidity: <span id="humidity-value">%</span>
+								Humidity: <span id="humidity-value"></span><span>%</span>
 							</div>
-							<div id="wind">Wind: <span id="wind-value">m/s</span></div>
+							<div id="wind">
+								Wind: <span id="wind-value"></span><span> m/s</span>
+							</div>
 						</div>
 					</div>
 				</div>
