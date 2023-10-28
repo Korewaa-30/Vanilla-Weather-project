@@ -100,7 +100,7 @@ img {
 .units {
 	position: relative;
 	font-size: 16px;
-	top: -30px;
+	top: -25px;
 }
 
 #weather-today {
@@ -110,4 +110,10 @@ img {
 a#celsius-link,
 a#fahrenheit-link {
 	color: #fff;
+	text-decoration: none;
+}
+
+#celsius-link:hover,
+#fahrenheit-link:hover {
+	text-decoration: underline;
 }

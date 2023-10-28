@@ -1,4 +1,66 @@
+//Changing the date
+let current = new Date();
+let now = document.querySelector("#date");
+
+let date = current.getDate();
+let year = current.getFullYear();
+let minutes = current.getMinutes();
+if (minutes < 10) {
+	minutes = `0${minutes}`;
+}
+
+let hours = current.getHours();
+if (hours < 10) {
+	hours = `0${hours}`;
+}
+
+let days = [
+	"Sunday",
+	"Monday",
+	"Tuesday",
+	"Wednesday",
+	"Thursday",
+	"Friday",
+	"Saturday",
+];
+let day = days[current.getDay()];
+
+let months = [
+	"January",
+	"February",
+	"March",
+	"April",
+	"May",
+	"June",
+	"July",
+	"August",
+	"September",
+	"October",
+	"November",
+	"December",
+];
+let month = months[current.getMonth()];
+
+now.innerHTML = `${day}, ${month} ${date}, ${year}. ${hours}:${minutes}`;
+
+//Change background depending on the time
+let weatherElement = document.querySelector(".weather");
+let weatherTodayElement = document.querySelector("#weather-today");
+
+let isDaytime = hours >= 6 && hours < 18;
+if (isDaytime) {
+	weatherElement.style.backgroundImage =
+		'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/099/125/original/cloud-blue-sky.jpg?1696527919")';
+} else {
+	weatherElement.style.backgroundImage =
+		'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/010/original/night-backfround.jpeg?1698325108")';
+	weatherTodayElement.style.color = "white";
+}
+
+//response
 function currentTemperature(response) {
+	console.log(response);
+
 	let temperature = Math.round(response.data.temperature.current);
 	let temperatureElement = document.querySelector("#temp-today");
 	temperatureElement.innerHTML = `${temperature}`;
@@ -22,6 +84,9 @@ function currentTemperature(response) {
 	let city = response.data.city;
 	let cityElement = document.querySelector("#city");
 	cityElement.innerHTML = city;
+
+	celsiusTemp = temperature;
+	showcelsius();
 }
 
 //Search button
@@ -73,52 +138,37 @@ function coordinates(event) {
 let currentLocation = document.querySelector("#current-location");
 currentLocation.addEventListener("click", coordinates);
 
-//Changing the date
-let current = new Date();
-let now = document.querySelector("#date");
+//Unit conversion
+function showcelsius(event) {
+	if (celsiusTemp !== null) {
+		fahrenheitLink.classList.remove("active");
+		celsiusLink.classList.add("active");
+		celsiusLink.style.color = "white";
+		fahrenheitLink.style.color = "black";
 
-let date = current.getDate();
-let year = current.getFullYear();
-let minutes = current.getMinutes();
-let hours = current.getHours();
-
-let days = [
-	"Sunday",
-	"Monday",
-	"Tuesday",
-	"Wednesday",
-	"Thursday",
-	"Friday",
-	"Saturday",
-];
-let day = days[current.getDay()];
-
-let months = [
-	"January",
-	"February",
-	"March",
-	"April",
-	"May",
-	"June",
-	"July",
-	"August",
-	"September",
-	"October",
-	"November",
-	"December",
-];
-let month = months[current.getMonth()];
-
-now.innerHTML = `${day}, ${month} ${date}, ${year}. ${hours}:${minutes}`;
-
-//Change background depending on the time
-let weatherElement = document.querySelector(".weather");
-
-let isDaytime = hours >= 6 && hours < 18;
-if (isDaytime) {
-	weatherElement.style.backgroundImage =
-		'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/099/125/original/cloud-blue-sky.jpg?1696527919")';
-} else {
-	weatherElement.style.backgroundImage =
-		'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/010/original/night-backfround.jpeg?1698325108")';
+		let tempToday = document.querySelector("#temp-today");
+		tempToday.innerHTML = celsiusTemp;
+	}
 }
+
+function showFahrenheit(event) {
+	event.preventDefault();
+	if (celsiusTemp !== null) {
+		celsiusLink.classList.remove("active");
+		fahrenheitLink.classList.add("active");
+		fahrenheitLink.style.color = "white";
+		celsiusLink.style.color = "black";
+
+		let fahrenheitTemp = Math.round((celsiusTemp * 9) / 5 + 32);
+		let tempToday = document.querySelector("#temp-today");
+		tempToday.innerHTML = fahrenheitTemp;
+	}
+}
+
+let celsiusTemp = null;
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showcelsius);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheit);
