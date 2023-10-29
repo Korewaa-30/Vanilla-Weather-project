@@ -1,63 +1,3 @@
-//Changing the date
-let current = new Date();
-let now = document.querySelector("#date");
-
-let date = current.getDate();
-let year = current.getFullYear();
-let minutes = current.getMinutes();
-if (minutes < 10) {
-	minutes = `0${minutes}`;
-}
-
-let hours = current.getHours();
-if (hours < 10) {
-	hours = `0${hours}`;
-}
-
-let days = [
-	"Sunday",
-	"Monday",
-	"Tuesday",
-	"Wednesday",
-	"Thursday",
-	"Friday",
-	"Saturday",
-];
-let day = days[current.getDay()];
-
-let months = [
-	"January",
-	"February",
-	"March",
-	"April",
-	"May",
-	"June",
-	"July",
-	"August",
-	"September",
-	"October",
-	"November",
-	"December",
-];
-let month = months[current.getMonth()];
-
-now.innerHTML = `${day}, ${month} ${date}, ${year}. ${hours}:${minutes}`;
-
-//Change background depending on the time
-let weatherElement = document.querySelector(".weather");
-let weatherTodayElement = document.querySelector("#weather-today");
-
-let isDaytime = hours >= 6 && hours < 18;
-if (isDaytime) {
-	weatherElement.style.backgroundImage =
-		'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/099/125/original/cloud-blue-sky.jpg?1696527919")';
-} else {
-	weatherElement.style.backgroundImage =
-		'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/010/original/night-backfround.jpeg?1698325108")';
-	weatherTodayElement.style.color = "white";
-}
-
-//response
 function currentTemperature(response) {
 	console.log(response);
 
@@ -172,3 +112,62 @@ celsiusLink.addEventListener("click", showcelsius);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheit);
+
+//Changing the date
+let current = new Date();
+let now = document.querySelector("#date");
+
+let date = current.getDate();
+let year = current.getFullYear();
+let minutes = current.getMinutes();
+if (minutes < 10) {
+	minutes = `0${minutes}`;
+}
+
+let hours = current.getHours();
+if (hours < 10) {
+	hours = `0${hours}`;
+}
+
+let days = [
+	"Sunday",
+	"Monday",
+	"Tuesday",
+	"Wednesday",
+	"Thursday",
+	"Friday",
+	"Saturday",
+];
+let day = days[current.getDay()];
+
+let months = [
+	"January",
+	"February",
+	"March",
+	"April",
+	"May",
+	"June",
+	"July",
+	"August",
+	"September",
+	"October",
+	"November",
+	"December",
+];
+let month = months[current.getMonth()];
+
+now.innerHTML = `${day}, ${month} ${date}, ${year}. ${hours}:${minutes}`;
+
+//Change background depending on the time
+let weatherElement = document.querySelector(".weather");
+let weatherTodayElement = document.querySelector("#weather-today");
+
+let isDaytime = hours >= 6 && hours < 18;
+if (isDaytime) {
+	weatherElement.style.backgroundImage =
+		'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/099/125/original/cloud-blue-sky.jpg?1696527919")';
+} else {
+	weatherElement.style.backgroundImage =
+		'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/010/original/night-backfround.jpeg?1698325108")';
+	weatherTodayElement.style.color = "white";
+}
