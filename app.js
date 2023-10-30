@@ -1,4 +1,5 @@
 function currentTemperature(response) {
+	console.log(response.data);
 	let temperature = Math.round(response.data.temperature.current);
 	let temperatureElement = document.querySelector("#temp-today");
 	temperatureElement.innerHTML = `${temperature}`;
@@ -23,10 +24,10 @@ function currentTemperature(response) {
 	let cityElement = document.querySelector("#city");
 	cityElement.innerHTML = city;
 
-	displayForecast();
-
 	celsiusTemp = temperature;
 	showcelsius();
+
+	getForecast(response.data.coordinates);
 }
 
 //Search button
@@ -79,7 +80,8 @@ let currentLocation = document.querySelector("#current-location");
 currentLocation.addEventListener("click", coordinates);
 
 //forecast
-function displayForecast() {
+function displayForecast(response) {
+	console.log(response.data.daily);
 	let forecastElement = document.querySelector("#forecast");
 
 	let forecastHTML = `<div class="row">`;
@@ -101,6 +103,14 @@ function displayForecast() {
 	});
 	forecastHTML += `</div>`;
 	forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+	console.log(coordinates);
+	apiKey = "8942b6bt940fbcoac33ad8a55c33f639";
+	forecastUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+
+	axios.get(forecastUrl).then(displayForecast);
 }
 
 //Unit conversion
