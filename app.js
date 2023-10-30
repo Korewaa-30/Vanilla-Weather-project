@@ -23,6 +23,8 @@ function currentTemperature(response) {
 	let cityElement = document.querySelector("#city");
 	cityElement.innerHTML = city;
 
+	displayForecast();
+
 	celsiusTemp = temperature;
 	showcelsius();
 }
@@ -75,6 +77,31 @@ function coordinates(event) {
 
 let currentLocation = document.querySelector("#current-location");
 currentLocation.addEventListener("click", coordinates);
+
+//forecast
+function displayForecast() {
+	let forecastElement = document.querySelector("#forecast");
+
+	let forecastHTML = `<div class="row">`;
+	let week = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+	week.forEach(function (day) {
+		forecastHTML += `<div class="col-2">
+			<div id="day">${day}</div>
+			<img
+				src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+				alt="icon"
+				width="70px"
+				id="forecast-icon"
+			/>
+			<div>
+				<span id="max-temp">30°</span>
+				<span id="min-temp">11°</span>
+			</div>
+		</div>`;
+	});
+	forecastHTML += `</div>`;
+	forecastElement.innerHTML = forecastHTML;
+}
 
 //Unit conversion
 function showcelsius(event) {
