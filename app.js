@@ -80,26 +80,38 @@ let currentLocation = document.querySelector("#current-location");
 currentLocation.addEventListener("click", coordinates);
 
 //forecast
+function formatDay(timestamp) {
+	let date = new Date(timestamp * 1000);
+	let day = date.getDay();
+	let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+	return days[day];
+}
+
 function displayForecast(response) {
 	console.log(response.data.daily);
+	let forecast = response.data.daily;
 	let forecastElement = document.querySelector("#forecast");
 
 	let forecastHTML = `<div class="row">`;
-	let week = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-	week.forEach(function (day) {
-		forecastHTML += `<div class="col-2">
-			<div id="day">${day}</div>
+	forecast.forEach(function (forecastDay, index) {
+		if (index < 5) {
+			forecastHTML += `<div class="col-2">
+			<div id="day">${formatDay(forecastDay.time)}</div>
 			<img
-				src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+				src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+					forecastDay.condition.icon
+				}.png"
 				alt="icon"
 				width="70px"
 				id="forecast-icon"
 			/>
 			<div>
-				<span id="max-temp">30°</span>
-				<span id="min-temp">11°</span>
+				<span id="max-temp">${Math.round(forecastDay.temperature.maximum)}°</span>
+				<span id="min-temp">${Math.round(forecastDay.temperature.minimum)}°</span>
 			</div>
 		</div>`;
+		}
 	});
 	forecastHTML += `</div>`;
 	forecastElement.innerHTML = forecastHTML;
