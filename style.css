@@ -194,6 +194,7 @@ a#fahrenheit-link {
 
 	.current-icon {
 		margin-right: 10px;
+		margin-bottom: 10px;
 		max-width: 120%;
 	}
 
