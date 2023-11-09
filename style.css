@@ -149,6 +149,7 @@ a#fahrenheit-link {
 	}
 
 	.current-icon {
+		margin-right: 10px;
 		max-width: 120%;
 	}
 
@@ -189,6 +190,11 @@ a#fahrenheit-link {
 		margin: 10px;
 		max-width: 100%;
 		padding: 5px;
+	}
+
+	.current-icon {
+		margin-right: 10px;
+		max-width: 120%;
 	}
 
 	#row {
