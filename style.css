@@ -148,6 +148,10 @@ a#fahrenheit-link {
 		max-width: 100%;
 	}
 
+	.current-icon {
+		max-width: 120%;
+	}
+
 	.container {
 		margin: 15px;
 		max-width: 100%;
@@ -158,7 +162,8 @@ a#fahrenheit-link {
 		max-width: 100%;
 	}
 
-	#search {
+	.btn.btn-primary {
+		font-size: 16px;
 		max-width: 100%;
 	}
 }
@@ -190,7 +195,8 @@ a#fahrenheit-link {
 		max-width: 100%;
 	}
 
-	#search {
+	.btn.btn-primary {
+		font-size: 16px;
 		max-width: 100%;
 	}
 }
