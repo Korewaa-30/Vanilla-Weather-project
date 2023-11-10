@@ -188,14 +188,22 @@ a#fahrenheit-link {
 
 	.container {
 		margin: 10px;
+		max-height: 80%;
 		max-width: 100%;
 		padding: 5px;
 	}
 
-	.current-icon {
-		margin-right: 20px;
-		margin-bottom: 10px;
-		max-width: 120%;
+	#temp-today {
+		display: block;
+		text-align: center;
+		width: 100%;
+	}
+
+	.units {
+		display: block;
+		position: relative;
+		text-align: right;
+		top: -45px;
 	}
 
 	#row {
