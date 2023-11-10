@@ -192,19 +192,6 @@ a#fahrenheit-link {
 		padding: 5px;
 	}
 
-	#temp-today {
-		display: block;
-		text-align: center;
-		width: 100%;
-	}
-
-	.units {
-		display: block;
-		position: relative;
-		text-align: right;
-		top: -45px;
-	}
-
 	#row {
 		max-width: 100%;
 	}
