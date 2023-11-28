@@ -226,6 +226,7 @@ now.innerHTML = `${day}, ${month} ${date}, ${year}. ${hours}:${minutes}`;
 let weatherElement = document.querySelector(".weather");
 let weatherTodayElement = document.querySelector("#weather-today");
 let weatherForecastElement = document.querySelector("#weather-forecast");
+let temperatureTodayElement = document.querySelector("#temp-today");
 
 let isDaytime = hours >= 6 && hours < 18;
 if (isDaytime) {
@@ -236,4 +237,5 @@ if (isDaytime) {
 		'url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/010/original/night-backfround.jpeg?1698325108")';
 	weatherTodayElement.style.color = "white";
 	weatherForecastElement.style.color = "white";
+	temperatureTodayElement.style.color = "white";
 }
