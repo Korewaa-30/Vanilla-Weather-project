@@ -1,0 +1,107 @@
+.Weather {
+	background: azure;
+	font-family: sans-serif;
+	margin: 30px 20px;
+	max-width: 720px;
+	padding: 20px;
+}
+
+h1 {
+	display: block;
+	flex-wrap: wrap;
+	font-family: "Cerebri Sans", Helvetica, Arial, sans-serif;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	padding: 10px;
+	text-align: center;
+	width: 100%;
+}
+
+h2 {
+	margin-top: 10px;
+}
+
+h3 {
+	text-align: center;
+}
+
+img {
+	font-size: 30px;
+	font-weight: 400;
+	vertical-align: top;
+}
+
+.form-control {
+	font-family: "PT Mono", monospace;
+	padding: 10px;
+}
+
+.btn.btn-primary {
+	width: 100%;
+	padding: 8px;
+	cursor: pointer;
+	font-size: 20px;
+	color: #fff;
+	transition: 0.2s ease;
+}
+
+.separator {
+	height: 1px;
+	width: 90%;
+	margin: 25px 0;
+	background: #bbbbbb;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.separator::before {
+	content: "or";
+	color: #6c757d;
+	font-size: 20px;
+	padding: 0 15px;
+	margin-top: -4px;
+	background: #e3f2fd;
+}
+
+.btn.btn-info {
+	font-size: 20px;
+	color: #fff;
+	transition: 0.2s ease;
+	padding: 10px;
+	text-align: center;
+	width: 100%;
+}
+
+#description::first-letter {
+	text-transform: capitalize;
+}
+
+#temp-today {
+	color: rgb(33, 33, 33);
+	display: inline;
+	font-size: 64px;
+	font-weight: 400;
+	line-height: 64px;
+	text-size-adjust: 100%;
+}
+
+.units {
+	position: relative;
+	font-size: 16px;
+	top: -25px;
+}
+
+#weather-today {
+	font-family: "Playfair Display", serif;
+}
+
+a#celsius-link,
+a#fahrenheit-link {
+	text-decoration: none;
+}
+
+#celsius-link:hover,
+#fahrenheit-link:hover {
+	text-decoration: underline;
+}
