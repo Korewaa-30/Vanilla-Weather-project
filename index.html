@@ -33,112 +33,114 @@
 		<script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
 	</head>
 	<body>
-		<div class="container">
-			<div class="weather">
-				<h1>Weather Dashboard</h1>
-				<form>
-					<div id="search-city">
-						<div class="row">
-							<div class="col-md-8">
-								<input
-									type="text"
-									class="form-control"
-									placeholder="Enter your city..."
-									value=""
-									autofocus="on"
-									autocomplete="off"
-									id="city-input"
-								/>
-							</div>
-							<div class="col-md-3">
-								<button
-									type="submit"
-									class="btn btn-primary"
-									id="search"
-								>
-									Search
-								</button>
-							</div>
-						</div>
-					</div>
-					<div class="separator"></div>
+		<div class="container p-2">
+			<h1>Weather Dashboard</h1>
+			<form>
+				<div id="search-city">
 					<div class="row">
 						<div class="col-md-8">
+							<input
+								type="text"
+								class="form-control"
+								placeholder="Enter your city..."
+								value=""
+								autofocus="on"
+								autocomplete="off"
+								id="city-input"
+							/>
+						</div>
+						<div class="col-md-3">
 							<button
-								type="button"
-								class="btn btn-info"
-								id="current-location"
+								type="submit"
+								class="btn btn-primary"
+								id="search"
 							>
-								Use your current location
+								Search
 							</button>
 						</div>
 					</div>
-				</form>
-				<div id="weather-today">
-					<h2 id="city">Location</h2>
-					<div id="date">Date, time</div>
-					<br />
-					<div
-						class="row"
-						id="row"
-					>
-						<div class="col-md-6">
-							<div id="description"></div>
+				</div>
+				<div class="separator"></div>
+				<div class="row">
+					<div class="col-md-8">
+						<button
+							type="button"
+							class="btn btn-info"
+							id="current-location"
+						>
+							Use your current location
+						</button>
+					</div>
+				</div>
+			</form>
+			<div id="weather-today">
+				<h2 id="city">Location</h2>
+				<div id="date">Date, time</div>
+				<br />
+				<div
+					class="row"
+					id="row"
+				>
+					<div class="col-md-6">
+						<div id="description"></div>
+						<img
+							src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+							alt="icon"
+							width="70px"
+							id="current-icon"
+						/>
+						<span id="temp-today">30</span>
+						<span class="units">
+							<a
+								href="#"
+								id="celsius-link"
+								>°C</a
+							>
+							<span class="unit-separator">|</span>
+							<a
+								href="#"
+								id="fahrenheit-link"
+								>°F</a
+							>
+						</span>
+					</div>
+					<div class="col-md-6">
+						<div id="humidity">
 							<img
-								src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
-								alt="icon"
-								width="70px"
-								id="current-icon"
+								src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/363/original/icons8-humidity-32.png?1698661745"
+								alt=""
+								width="20px"
 							/>
-							<span id="temp-today">30</span>
-							<span class="units">
-								<a
-									href="#"
-									id="celsius-link"
-									>°C</a
-								>
-								<span class="unit-separator">|</span>
-								<a
-									href="#"
-									id="fahrenheit-link"
-									>°F</a
-								>
-							</span>
+							Humidity: <span id="humidity-value"></span><span>%</span>
 						</div>
-						<div class="col-md-6">
-							<div id="humidity">
-								<img
-									src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/363/original/icons8-humidity-32.png?1698661745"
-									alt=""
-									width="20px"
-								/>
-								Humidity: <span id="humidity-value"></span><span>%</span>
-							</div>
-							<div id="wind">
-								<img
-									src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/364/original/icons8-wind-64.png?1698661902"
-									alt=""
-									width="20px"
-								/>
-								Wind: <span id="wind-value"></span><span> m/s</span>
-							</div>
+						<div id="wind">
+							<img
+								src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/364/original/icons8-wind-64.png?1698661902"
+								alt=""
+								width="20px"
+							/>
+							Wind: <span id="wind-value"></span><span> m/s</span>
 						</div>
 					</div>
 				</div>
-				<div id="weather-forecast">
-					<h3>Next 5 days</h3>
-					<div id="forecast"></div>
-				</div>
 			</div>
-			<small>
-				<a
-					href="https://github.com/Korewaa-30/Vanilla-Weather-project"
-					target="_blank"
-					>Open-source code,</a
-				>
-				<em>by Sarah Duker</em>
-			</small>
+			<div id="weather-forecast">
+				<h3>Next 5 days</h3>
+				<div id="forecast"></div>
+			</div>
 		</div>
+		<footer>
+			<div class="container source text-center">
+				<small>
+					<a
+						href="https://github.com/Korewaa-30/Vanilla-Weather-project"
+						target="_blank"
+						>Open-source code,</a
+					>
+					<em>by Sarah Duker</em>
+				</small>
+			</div>
+		</footer>
 		<script src="app.js"></script>
 	</body>
 </html>
